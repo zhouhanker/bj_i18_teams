@@ -48,6 +48,7 @@ public class DwdInteractionCommentInfo {
         tableEnv.createTemporaryView("comment_info",commentInfo);
 
 
+
         tableEnv.executeSql("CREATE TABLE base_dic (\n" +
                 " dic_code string,\n" +
                 " info ROW<dic_name string>,\n" +
