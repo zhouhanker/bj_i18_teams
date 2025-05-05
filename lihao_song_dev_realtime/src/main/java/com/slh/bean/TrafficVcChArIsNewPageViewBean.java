@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Package com.stream.realtime.bean.TrafficVcChArIsNewPageViewBean
+ * @Package com.bean.TrafficVcChArIsNewPageViewBean
  * @Author song.lihao
  * @Date 2025/4/23 20:59
  * @description:

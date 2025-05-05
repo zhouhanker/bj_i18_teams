@@ -1,4 +1,4 @@
-package com.lyx.stream.realtime.v2.app.constant;
+package com.lyx.v2.app.constant;
 
 /**
  * @Package com.lyx.retail.v1.realtime.constant.Constant

@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.util.*;
 
 /**
- * @Package com.lzy.stream.realtime.v1.function.TableProcessFunction
+ * @Package com.lzy.v1.function.TableProcessFunction
  * @Author zheyuan.liu
  * @Date 2025/4/11 9:03
  * @description:

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 /**
- * @Package com.dpk.stream.realtime.v1.bean.TradeSkuOrderBean
+ * @Package com.dpk.v1.bean.TradeSkuOrderBean
  * @Author song.lihao
  * @Date 2025/4/23 14:46
  * @description:

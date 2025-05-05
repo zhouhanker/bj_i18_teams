@@ -8,7 +8,7 @@ import constant.Constant;
 import utils.SQLUtil;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.bwd.DwdTradeCartAdd
+ * @Package com.lzy.com.lzy.com.lzy.v2.app.bwd.DwdTradeCartAdd
  * @Author yinshi
  * @Date 2025/5/4 15:49
  * @description: DwdTradeCartAdd
