@@ -1,7 +1,7 @@
-package com.lyx.stream.realtime.v2.app.ods;
+package com.lyx.v2.app.ods;
 
-import com.lyx.stream.realtime.v2.app.utils.FlinkSinkUtil;
-import com.lyx.stream.realtime.v2.app.utils.FlinkSourceUtil;
+import com.lyx.v2.app.utils.FlinkSinkUtil;
+import com.lyx.v2.app.utils.FlinkSourceUtil;
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -10,7 +10,7 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
- * @Package com.lyx.stream.realtime.v1.app.ods.MysqlToKafka
+ * @Package com.lyx.v1.app.ods.MysqlToKafka
  * @Author yuxin_li
  * @Date 2025/4/17 9:00
  * @description: MysqlToKafka

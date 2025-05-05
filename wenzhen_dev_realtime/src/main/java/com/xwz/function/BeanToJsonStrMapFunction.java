@@ -6,7 +6,7 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import org.apache.flink.api.common.functions.MapFunction;
 
 /**
- * @Package com.xwz.stream.realtime.v1.function.BeanToJsonStrMapFunction
+ * @Package com.xwz.v1.function.BeanToJsonStrMapFunction
  * @Author Wenzhen.Xie
  * @Date 2025/4/14 14:29
  * @description: BeanToJsonStrMapFunction

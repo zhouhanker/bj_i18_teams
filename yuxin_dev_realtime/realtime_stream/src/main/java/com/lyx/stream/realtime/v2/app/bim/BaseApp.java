@@ -1,13 +1,13 @@
-package com.lyx.stream.realtime.v2.app.bim;
+package com.lyx.v2.app.bim;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.lyx.stream.realtime.v2.app.bean.TableProcessDim;
-import com.lyx.stream.realtime.v2.app.constant.Constant;
-import com.lyx.stream.realtime.v2.app.function.HBaseSinkFunction;
-import com.lyx.stream.realtime.v2.app.function.TableProcessFunction;
-import com.lyx.stream.realtime.v2.app.utils.FlinkSourceUtil;
-import com.lyx.stream.realtime.v2.app.utils.HBaseUtil;
+import com.lyx.v2.app.bean.TableProcessDim;
+import com.lyx.v2.app.constant.Constant;
+import com.lyx.v2.app.function.HBaseSinkFunction;
+import com.lyx.v2.app.function.TableProcessFunction;
+import com.lyx.v2.app.utils.FlinkSourceUtil;
+import com.lyx.v2.app.utils.HBaseUtil;
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -28,7 +28,7 @@ import org.apache.flink.util.Collector;
 import org.apache.hadoop.hbase.client.Connection;
 
 /**
- * @Package com.lyx.stream.realtime.v2.app.bim.BaseApp
+ * @Package com.lyx.v2.app.bim.BaseApp
  * @Author yuxin_li
  * @Date 2025/4/11 9:34
  * @description: BaseApp

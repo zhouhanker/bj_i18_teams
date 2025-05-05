@@ -1,14 +1,14 @@
-package com.lyx.stream.realtime.v2.app.dws;
+package com.lyx.v2.app.dws;
 
-import com.lyx.stream.realtime.v2.app.constant.Constant;
-import com.lyx.stream.realtime.v2.app.function.KeywordUDTF;
-import com.lyx.stream.realtime.v2.app.utils.SQLUtil;
+import com.lyx.v2.app.constant.Constant;
+import com.lyx.v2.app.function.KeywordUDTF;
+import com.lyx.v2.app.utils.SQLUtil;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
- * @Package com.lyx.stream.realtime.v2.app.dws.DwsTrafficSourceKeywordPageViewWindow
+ * @Package com.lyx.v2.app.dws.DwsTrafficSourceKeywordPageViewWindow
  * @Author yuxin_li
  * @Date 2025/4/18 18:53
  * @description:

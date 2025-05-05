@@ -1,8 +1,8 @@
-package com.lyx.stream.realtime.v2.app.function;
+package com.lyx.v2.app.function;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lyx.stream.realtime.v1.bean.TableProcessDim;
-import com.lyx.stream.realtime.v1.utils.JdbcUtil;
+import com.lyx.v1.bean.TableProcessDim;
+import com.lyx.v1.utils.JdbcUtil;
 import org.apache.flink.api.common.state.BroadcastState;
 import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.state.ReadOnlyBroadcastState;
@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.util.*;
 
 /**
- * @Package com.zzw.stream.realtime.v1.function.TableProcessFunction
+ * @Package com.zzw.v1.function.TableProcessFunction
  * @Author zhengwei_zhou
  * @Date 2025/4/21 9:42
  * @description: TableProcessFunction

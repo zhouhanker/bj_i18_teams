@@ -1,7 +1,7 @@
-package com.lyx.stream.realtime.v2.app.utils;
+package com.lyx.v2.app.utils;
 
 
-import com.lyx.stream.realtime.v2.app.constant.Constant;
+import com.lyx.v2.app.constant.Constant;
 
 /**
  * @author Felix
