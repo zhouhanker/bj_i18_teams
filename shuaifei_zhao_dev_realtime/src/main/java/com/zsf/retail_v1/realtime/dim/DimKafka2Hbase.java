@@ -84,6 +84,7 @@ public class DimKafka2Hbase {
         });
 //        dbDimTabDS.print();
 
+
 //        调用方法 把维度表信息写入到 hbase
 //        createHBaseTable(dbDimTabDS);
 
