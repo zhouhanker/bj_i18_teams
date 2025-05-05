@@ -8,7 +8,6 @@ import com.xwz.function.DimAsyncFunction;
 import com.xwz.utils.DateFormatUtil;
 import com.xwz.utils.FlinkSinkUtil;
 import com.xwz.utils.FlinkSourceUtil;
-import lombok.var;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -52,7 +51,7 @@ public class DwsTradeProvinceOrderWindow {
 
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3,3000L));
 
-        var kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_trade_order_detail", "dws_trade_province_order_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_trade_order_detail", "dws_trade_province_order_window");
 
         DataStreamSource<String> kafkaStrDS
                 = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
