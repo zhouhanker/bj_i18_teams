@@ -8,7 +8,7 @@ import function.KeywordUDTF;
 import utils.SQLUtil;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.dws.DwsTrafficSourceKeywordPageViewWindow
+ * @Package com.lzy.com.lzy.com.lzy.v2.app.dws.DwsTrafficSourceKeywordPageViewWindow
  * @Author yinshi
  * @Date 2025/5/4 18:53
  * @description:

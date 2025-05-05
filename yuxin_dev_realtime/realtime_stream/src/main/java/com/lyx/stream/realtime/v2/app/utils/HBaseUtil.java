@@ -1,8 +1,8 @@
-package com.lyx.stream.realtime.v2.app.utils;
+package com.lyx.v2.app.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.CaseFormat;
-import com.lyx.stream.realtime.v2.app.constant.Constant;
+import com.lyx.v2.app.constant.Constant;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.conf.Configuration;

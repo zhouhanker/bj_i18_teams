@@ -1,9 +1,9 @@
-package com.lyx.stream.realtime.v2.app.utils;
+package com.lyx.v2.app.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
-import com.lyx.stream.realtime.v2.app.bean.TableProcessDwd;
-import com.lyx.stream.realtime.v2.app.constant.Constant;
+import com.lyx.v2.app.bean.TableProcessDwd;
+import com.lyx.v2.app.constant.Constant;
 import org.apache.doris.flink.cfg.DorisExecutionOptions;
 import org.apache.doris.flink.cfg.DorisOptions;
 import org.apache.doris.flink.cfg.DorisReadOptions;

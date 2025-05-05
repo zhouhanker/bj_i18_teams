@@ -31,7 +31,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.dws.DwsUserUserLoginWindow
+ * @Package com.lzy.v1.app.dws.DwsUserUserLoginWindow
  * @Author zheyuan.liu
  * @Date 2025/4/21 9:56
  * @description: DwsUserUserLoginWindow

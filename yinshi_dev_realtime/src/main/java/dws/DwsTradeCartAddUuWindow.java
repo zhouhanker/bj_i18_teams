@@ -31,7 +31,7 @@ import utils.FlinkSinkUtil;
 import utils.FlinkSourceUtil;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.dws.DwsTradeCartAddUuWindow
+ * @Package com.lzy.com.lzy.com.lzy.v2.app.dws.DwsTradeCartAddUuWindow
  * @Author yinshi
  * @Date 2025/5/4 14:31
  * @description: DwsTradeCartAddUuWindow

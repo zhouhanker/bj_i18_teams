@@ -31,7 +31,7 @@ import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.dws.DwsTradeSkuOrderWindow
+ * @Package com.lzy.com.lzy.com.lzy.v2.app.dws.DwsTradeSkuOrderWindow
  * @Author yinshi
  * @Date 2025/5/4 15:52
  * @description: DwsTradeSkuOrderWindow
