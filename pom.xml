@@ -12,6 +12,9 @@
         <module>stream-common</module>
         <module>yuxin_dev_realtime</module>
         <module>zeyang_dev_realtime</module>
+        <module>runze_dev_realtime</module>
+        <module>yinshi_dev_realtime</module>
+        <module>huizhong_dev_realtime</module>
         <module>chenming_realtime_v1</module>
         <module>mingkai_realtime_v1</module>
         <module>pengkun_dev_realtime</module>
