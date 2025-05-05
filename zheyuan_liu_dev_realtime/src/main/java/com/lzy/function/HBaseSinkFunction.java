@@ -13,7 +13,7 @@ import redis.clients.jedis.Jedis;
 
 
 /**
- * @Package com.lzy.stream.realtime.v1.function.HBaseSinkFunction
+ * @Package com.lzy.v1.function.HBaseSinkFunction
  * @Author zheyuan.liu
  * @Date 2025/4/11 9:11
  * @description: HBaseSinkFunction

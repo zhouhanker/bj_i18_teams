@@ -1,13 +1,13 @@
-package com.lyx.stream.realtime.v2.app.dws;
+package com.lyx.v2.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import com.lyx.stream.realtime.v2.app.bean.TrafficVcChArIsNewPageViewBean;
-import com.lyx.stream.realtime.v2.app.function.BeanToJsonStrMapFunction;
-import com.lyx.stream.realtime.v2.app.utils.DateFormatUtil;
-import com.lyx.stream.realtime.v2.app.utils.FlinkSinkUtil;
-import com.lyx.stream.realtime.v2.app.utils.FlinkSourceUtil;
+import com.lyx.v2.app.bean.TrafficVcChArIsNewPageViewBean;
+import com.lyx.v2.app.function.BeanToJsonStrMapFunction;
+import com.lyx.v2.app.utils.DateFormatUtil;
+import com.lyx.v2.app.utils.FlinkSinkUtil;
+import com.lyx.v2.app.utils.FlinkSourceUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -34,7 +34,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 /**
- * @Package com.lyx.stream.realtime.v2.app.dws.DwsTrafficVcChArIsNewPageViewWindow
+ * @Package com.lyx.v2.app.dws.DwsTrafficVcChArIsNewPageViewWindow
  * @Author yuxin_li
  * @Date 2025/4/21 9:37
  * @description: DwsTrafficVcChArIsNewPageViewWindow

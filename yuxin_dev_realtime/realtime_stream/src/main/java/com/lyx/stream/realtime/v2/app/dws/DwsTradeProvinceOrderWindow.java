@@ -1,15 +1,15 @@
-package com.lyx.stream.realtime.v2.app.dws;
+package com.lyx.v2.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import com.lyx.stream.realtime.v2.app.bean.TradeProvinceOrderBean;
-import com.lyx.stream.realtime.v2.app.constant.Constant;
-import com.lyx.stream.realtime.v2.app.function.BeanToJsonStrMapFunction;
-import com.lyx.stream.realtime.v2.app.utils.DateFormatUtil;
-import com.lyx.stream.realtime.v2.app.utils.FlinkSinkUtil;
-import com.lyx.stream.realtime.v2.app.utils.FlinkSourceUtil;
-import com.lyx.stream.realtime.v2.app.utils.HBaseUtil;
+import com.lyx.v2.app.bean.TradeProvinceOrderBean;
+import com.lyx.v2.app.constant.Constant;
+import com.lyx.v2.app.function.BeanToJsonStrMapFunction;
+import com.lyx.v2.app.utils.DateFormatUtil;
+import com.lyx.v2.app.utils.FlinkSinkUtil;
+import com.lyx.v2.app.utils.FlinkSourceUtil;
+import com.lyx.v2.app.utils.HBaseUtil;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -41,7 +41,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 /**
- * @Package com.lyx.stream.realtime.v2.app.dws.DwsTradeProvinceOrderWindow
+ * @Package com.lyx.v2.app.dws.DwsTradeProvinceOrderWindow
  * @Author yuxin_li
  * @Date 2025/4/21 14:56
  * @description: DwsTradeProvinceOrderWindow

@@ -10,7 +10,7 @@ import utils.SQLUtil;
 import java.time.Duration;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.bwd.DwdTradeRefundPaySucDetail
+ * @Package com.lzy.com.lzy.com.lzy.v2.app.bwd.DwdTradeRefundPaySucDetail
  * @Author yinshi
  * @Date 2025/5/4 15:46
  * @description: DwdTradeRefundPaySucDetail

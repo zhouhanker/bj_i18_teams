@@ -1,4 +1,4 @@
-package com.lyx.stream.realtime.v2.app.bean;
+package com.lyx.v2.app.bean;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 /**
- * @Package com.zzw.stream.realtime.v1.bean.TradeSkuOrderBean
+ * @Package com.zzw.v1.bean.TradeSkuOrderBean
  * @Author zhengwei_zhou
  * @Date 2025/4/22 15:30
  * @description: TradeSkuOrderBean

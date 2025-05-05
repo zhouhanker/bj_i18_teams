@@ -1,7 +1,7 @@
-package com.lyx.stream.realtime.v2.app.utils;
+package com.lyx.v2.app.utils;
 
 import com.google.common.base.CaseFormat;
-import com.lyx.stream.realtime.v2.app.constant.Constant;
+import com.lyx.v2.app.constant.Constant;
 import org.apache.commons.beanutils.BeanUtils;
 
 import java.sql.*;

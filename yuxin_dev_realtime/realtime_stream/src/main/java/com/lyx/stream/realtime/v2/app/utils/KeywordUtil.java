@@ -1,4 +1,4 @@
-package com.lyx.stream.realtime.v2.app.utils;
+package com.lyx.v2.app.utils;
 
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Package com.zzw.stream.realtime.v1.utils.KeywordUtil
+ * @Package com.zzw.v1.utils.KeywordUtil
  * @Author zhengwei_zhou
  * @Date 2025/4/22 15:27
  * @description: KeywordUtil
