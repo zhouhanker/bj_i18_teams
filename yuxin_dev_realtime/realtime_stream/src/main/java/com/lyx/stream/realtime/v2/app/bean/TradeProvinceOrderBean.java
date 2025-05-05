@@ -1,4 +1,4 @@
-package com.lyx.stream.realtime.v2.app.bean;
+package com.lyx.v2.app.bean;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;

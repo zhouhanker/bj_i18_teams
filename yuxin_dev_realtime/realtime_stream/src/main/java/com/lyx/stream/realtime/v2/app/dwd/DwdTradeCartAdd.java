@@ -1,14 +1,14 @@
-package com.lyx.stream.realtime.v2.app.dwd;
+package com.lyx.v2.app.dwd;
 
-import com.lyx.stream.realtime.v2.app.constant.Constant;
-import com.lyx.stream.realtime.v2.app.utils.SQLUtil;
+import com.lyx.v2.app.constant.Constant;
+import com.lyx.v2.app.utils.SQLUtil;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
- * @Package com.lyx.stream.realtime.v2.app.bwd.DwdTradeCartAdd
+ * @Package com.lyx.v2.app.bwd.DwdTradeCartAdd
  * @Author yuxin_li
  * @Date 2025/4/11 20:49
  * @description: DwdTradeCartAdd

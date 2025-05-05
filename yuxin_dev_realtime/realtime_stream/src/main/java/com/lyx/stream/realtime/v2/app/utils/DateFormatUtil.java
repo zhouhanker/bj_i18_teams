@@ -1,4 +1,4 @@
-package com.lyx.stream.realtime.v2.app.utils;
+package com.lyx.v2.app.utils;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 

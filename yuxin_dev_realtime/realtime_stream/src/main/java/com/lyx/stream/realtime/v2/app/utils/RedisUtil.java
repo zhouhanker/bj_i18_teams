@@ -1,4 +1,4 @@
-package com.lyx.stream.realtime.v2.app.utils;
+package com.lyx.v2.app.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
