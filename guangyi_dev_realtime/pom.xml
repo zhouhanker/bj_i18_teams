@@ -1,50 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>bj_i18_teams</artifactId>
         <groupId>com.zh</groupId>
+        <artifactId>bj_i18_teams</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zy</groupId>
-    <artifactId>zeyang_dev_realtime</artifactId>
+    <groupId>com.zgy</groupId>
+    <artifactId>guangyi_dev_realtime</artifactId>
+    <packaging>jar</packaging>
+
+    <name>guangyi_dev_realtime</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
     <repositories>
         <repository>
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
         </repository>
     </repositories>
+
     <dependencies>
+
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs-client</artifactId>
             <version>${hadoop.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.zh</groupId>
-            <artifactId>stream-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>${hadoop.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-hbase_2.11</artifactId>
+            <version>1.10.3</version>
+            <!--                <scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>com.janeluo</groupId>
@@ -56,41 +57,50 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.36</version>
         </dependency>
-        <!--         flink 流批开发依赖包 -->
+        <!--        flink 流批开发依赖包-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
             <version>1.17.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-sql-connector-hive-2.3.9_2.12</artifactId>
             <version>1.17.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-hive_2.12</artifactId>
             <version>1.17.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.7</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
+
+
+
         <dependency>
             <groupId>org.apache.hive</groupId>
             <artifactId>hive-jdbc</artifactId>
@@ -103,6 +113,7 @@
             </exclusions>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.hive</groupId>
             <artifactId>hive-exec</artifactId>
@@ -115,62 +126,78 @@
             </exclusions>
             <scope>provided</scope>
         </dependency>
-        <!--         kafka 依赖 -->
+
+
+
+        <!--        kafka 依赖-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-kafka</artifactId>
-            <!--             <scope>provided</scope> -->
+            <!--            <scope>provided</scope>-->
         </dependency>
-        <!--         flink RocksDB 依赖 -->
+
+        <!--        flink RocksDB 依赖-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-statebackend-rocksdb</artifactId>
         </dependency>
-        <!--         flink table 依赖环境 -->
+
+        <!--        flink table 依赖环境-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-runtime</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner-loader</artifactId>
         </dependency>
+
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-common</artifactId>
             <version>${flink.version}</version>
         </dependency>
-        <!--         Table API 依赖 -->
+
+
+
+
+        <!--        Table API 依赖-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-api-java</artifactId>
         </dependency>
-        <!--         Table API + DataStream 相互集成  -->
+
+        <!--        Table API + DataStream 相互集成 -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-api-java-bridge</artifactId>
         </dependency>
-        <!--         Flink 解析JSON -->
+
+        <!--        Flink 解析JSON-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-json</artifactId>
         </dependency>
-        <!--         Flink CDC MySQL connector -->
+
+        <!--        Flink CDC MySQL connector-->
         <dependency>
             <groupId>com.ververica</groupId>
             <artifactId>flink-connector-mysql-cdc</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>2.0.35</version>
-
         </dependency>
-        <!--  Flink 流批一体 Stream 写入HDFS 并指定ORC的存储格式 -->
+
+        <!-- Flink 流批一体 Stream 写入HDFS 并指定ORC的存储格式-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-orc</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba.hologres</groupId>
             <artifactId>hologres-connector-flink-1.17</artifactId>
@@ -178,51 +205,67 @@
             <scope>provided</scope>
             <classifier>jar-with-dependencies</classifier>
         </dependency>
+
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
+
         <dependency>
             <groupId>commons-cli</groupId>
             <artifactId>commons-cli</artifactId>
         </dependency>
+
+
         <dependency>
             <groupId>org.apache.doris</groupId>
             <artifactId>flink-doris-connector-1.17</artifactId>
             <version>1.5.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${hadoop.version}</version>
-            <!--             <scope>provided</scope> -->
+            <!--            <scope>provided</scope>-->
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-hbase-2.2</artifactId>
             <version>${flink.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-jdbc</artifactId>
             <version>3.1.1-1.17</version>
         </dependency>
+
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
-        <!--         敏感词检测 -->
+
+        <!--        敏感词检测-->
         <dependency>
             <groupId>com.github.houbb</groupId>
             <artifactId>sensitive-word</artifactId>
             <version>0.25.0</version>
         </dependency>
+
+
+
+
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -232,7 +275,7 @@
                 <executions>
                     <execution>
                         <id>copy-conf</id>
-                        <!-- default生命周期的哪个阶段 -->
+                        <!--default生命周期的哪个阶段-->
                         <phase>process-resources</phase>
                         <goals>
                             <goal>resources</goal>
@@ -240,13 +283,14 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <!--  设置false后是去掉 xxx-jar-with-dependencies.jar 后的 “-jar-with-dependencies”  -->
-                    <!--                     <appendAssemblyId>false</appendAssemblyId> -->
+                    <!-- 设置false后是去掉 xxx-jar-with-dependencies.jar 后的 “-jar-with-dependencies” -->
+                    <!--                    <appendAssemblyId>false</appendAssemblyId>-->
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
@@ -262,10 +306,11 @@
                 </executions>
             </plugin>
         </plugins>
-        <!-- 负责处理项目资源文件并拷贝到输出目录 -->
+
+        <!--负责处理项目资源文件并拷贝到输出目录-->
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>src/main/resources/</directory>
                 <targetPath>./</targetPath>
                 <filtering>true</filtering>
                 <includes>
@@ -274,17 +319,11 @@
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
                 </includes>
-                <!--  排除标签  -->
+                <!-- 排除标签 -->
                 <excludes>
                     <exclude>filter/*</exclude>
                 </excludes>
             </resource>
         </resources>
     </build>
-
-
-
-
-
-
 </project>
