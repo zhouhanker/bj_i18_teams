@@ -1,5 +1,7 @@
 package com.xwz.app.dwd;
 
+import com.xwz.constant.Constant;
+import com.xwz.utils.SQLUtil;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.Table;
