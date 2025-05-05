@@ -17,7 +17,7 @@ realtime-dws-trade-cart-add-uu-window                   20016
 realtime-dws-trade-sku-order-window                     20018(20017端口被占用)
 realtime-dws-trade-province-order-window                20019
 进行大屏设计
-
+解决冲突
 kafka-consumer-groups --bootstrap-server cdh01:9092 --group dws_trade_province_order_window  --reset-offsets --all-topics --to-earliest --execute
 
 FlinkCDC的op字段:
