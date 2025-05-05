@@ -8,10 +8,12 @@
     <artifactId>bj_i18_teams</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>stream-common</module>
         <module>yuxin_dev_realtime</module>
         <module>zeyang_dev_realtime</module>
+        <module>zheyuan_liu_dev_realtime</module>
     </modules>
 
 
@@ -275,8 +277,6 @@
             <!-- parquet 文件格式相关依赖 结束 -->
 
             <!-- mysql 相关依赖 开始 -->
-
-
             <dependency>
                 <groupId>commons-dbutils</groupId>
                 <artifactId>commons-dbutils</artifactId>
