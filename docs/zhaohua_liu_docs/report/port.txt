@@ -1,0 +1,216 @@
+OdsApp                                      20001
+DimApp                                      20002
+realtime-dwd-base-log                       20003
+realtime-dwd-interaction-comment-info:      20004
+realtime-dwd-trade-cart-add                 20005
+realtime-dwd-trade-order-detail             20006
+realtime-dwd-trade-order-cancel-detail      20007
+realtime-dwd-trade-order-pay-suc-detail     20008
+realtime-dwd-trade-refund-pay-suc-detail    20009
+realtime-dwd-base-db                        20010
+realtime-dwd-trade-order-refund             20011
+realtime-dws-traffic-source-keyword-page-view-window    20012
+realtime-dws-traffic-vc-ch-ar-is_new-page-view-window   20013
+realtime-dws-traffic-home-detail-page-view-window       20014
+realtime-dws-user-user-login-window                     20015
+realtime-dws-trade-cart-add-uu-window                   20016
+realtime-dws-trade-sku-order-window                     20018(20017端口被占用)
+realtime-dws-trade-province-order-window                20019
+进行大屏设计
+
+kafka-consumer-groups --bootstrap-server cdh01:9092 --group dws_trade_province_order_window  --reset-offsets --all-topics --to-earliest --execute
+
+FlinkCDC的op字段:
+    c：代表创建（create），表示插入了一条新记录。
+    u：代表更新（update），表示对已有记录进行了修改。
+    d：代表删除（delete），表示删除了一条记录。
+    r：代表读取（read），表示初始状态,当 Flink CDC 启动时，它会首先读取数据库中的历史数据
+
+MaxWell的type字段:
+    数据库操作               MaxWell输出
+    insert                  type:insert     data:{}
+    update                  type:update     data:{}     old:{}
+    delete                  type:delete     data:{}
+
+
+
+
+OdsApp:     全量读取mysql数据,并发送到kafka,topic为ods_initial
+
+DimApp:     start:  读取ods_initial
+
+            handle:
+                        etl:                读取e_commerce全量,并处理str类型为jsonObject
+
+                        readTableProcess:   读取e_commerce_config数据库中的配置信息,并转为实体类
+                                            op为d的读before,其他的堵after,即不管配置表的数据删不删都读
+                                            为将输出的实体类添加op字段,方便后续处理
+
+                        createHBaseTable:   删除op字段为d的
+                                            创建op字段为r或c的
+                                            删除再重新创建op字段为u的
+                                            原样返回TableProcessDim实体类
+
+                        connect:            将实体类类流转为string,TableProcessDim的广播流
+                                            将主流业务数据和广播流配置信息进行关联
+                                            处理关联流:
+                                                open:   jdbc直接读取mysql中将配置信息预加载到程序的configMap中
+                                                        避免主流数据先到，广播流数据后到，丢失数据的情况
+                                                        configMap的key为表名,value为TableProcessDim
+                                                        但是TableProcessDim仅有数据,没有op字段
+                                                processBroadcastElement:
+                                                        读取广播流中的数据,根据op字段判断
+                                                        op为d的,从广播状态和configMap删除
+                                                        其余的put更新广播状态和configMap
+                                                processElement:
+                                                        读取数据流中的数据
+                                                        根据数据流的表名先到广播状态中获取对应的配置信息
+                                                        如果没有找到对应的配置，再尝试到configMap中获取
+                                                        获取到数据证明数据即为维度数据
+                                                        返回(维度数据+操作类型op,对应的TableProcessDim)
+                                                        将数据写入hbase,op字段为d的根据rowKey删除,其他put
+
+DWD:(getKafkaDDL最早还是最晚读取?)
+    realtime-dwd-base-log
+                        etl:                读取日志数据,转为jsonObject,将不是json格式的脏数据写入测流,发送到kafka,主流返回
+                        fixedNewAndOld:     新老用户校验
+                        splitStream:        分流日志数据,返回HashMap<String, DataStream<String>>
+                        writeToKafka:       写入不同的kafka
+
+
+    realtime-dwd-interaction-comment-info
+                        readOdsDb:          从kafka读取ods数据,添加pt,et字段,et做水位线,建动态表
+                                            过滤出评论数据,注册为临时表
+                        readHbaseDic:       读取hbase的base_dic表,创建动态表
+                                            使用lookup join关联pt和base_dic,补充字段appraise_name
+                                            创建upsert_kafka表,映射kafka,将join后的数据写入该kafka
+
+    realtime-dwd-trade-cart-add:
+                                            从kafka的ods_initial主题中读取数据  创建动态表
+                                            过滤出加购数据,比上一次增加了多少数量
+                                            将过滤出来的加购数据写到kafka主题中
+
+    realtime-dwd-trade-order-detail:
+                                            过滤出订单明细,订单表,活动表,优惠券表,四表join形成宽表
+                                            创建upsertKafka表,并写入kafka
+
+    realtime-dwd-trade-order-cancel-detail:
+                                            过滤出订单状态1001修改为1003的数据,读取并关联kafka中的订单明细宽表
+                                            创建upsertKafka表,并写入kafka
+
+    realtime-dwd-trade-order-pay-suc-detail:
+                                            读取kafka中的ods_initial,并过滤出支付成功表dwd_trade_order_pay_suc_detail
+                                            读取hbase中的base_dic表
+                                            读取kafka中dwd_trade_order_detail表
+                                            支付成功表与订单明细表使用intervalJoin,与base_dic使用lookupJoin
+                                            创建upsertKafka映射表,将join表写入kafka
+
+    realtime-dwd-trade-refund-pay-suc-detail:
+                                            读取ods_initial
+                                            过滤出退款支付表中退款成功数据
+                                            过滤出退单表中退单完成的数据
+                                            过滤出订单表中退款完成的数据
+                                            读取字典表
+                                            四表join,与base_dic的为lookupJoin
+                                            创建upsertKafka映射表
+                                            写入kafka
+
+    realtime-dwd-base-db:
+                                            flinkDataStream读取ods_initial全量数据
+                                            将string转为jsonObject,过滤掉json格式错误,且snapshot==true即快照数据的
+                                            flinkCDC读取table_process_dwd的数据,并且补充op字段,转为实体类
+                                            实体类流转为<String, TableProcessDwd>的广播流,string为 (表名:操作类型)
+                                            广播流connect数据流
+
+                        open:               使用jdbc读取table_process_dwd,将配置信息预加载到map中
+                                            key为(表名:操作类型),value为TableProcessDwd
+                        processBroadcastElement:
+                                            处理广播流,这里主要是根据cdc读取到的(table:op)以及op字段
+                                            对广播状态中的<String, TableProcessDwd>键值对进行增删改
+                                            同时对configMap中预载的配置信息进行增删改
+                                            configMap使用JDBC预载的数据缺少op字段
+                        processElement:     处理数据流,分析kafka中的数据流,组成(table:op)
+                                            如果能根据key取到广播流或者configMap中的配置信息,则说明属于逻辑比较简单的事实表
+                                            op=d时,传递before,其他的传递after,加上ts字段
+                                            向下游传递(JsonObject,tableProcessDwd)的元祖
+                                            JsonObject中为具体数据,tableProcessDwd包含op字段以及mysql配置表的数据
+                                            使用工具类发送到kafka,这里的工具类看不太明白
+
+    realtime-dws-traffic-source-keyword-page-view-window:
+                                            注册自定义函数到表执行环境中
+                                            建kafka映射表,读取页面日志
+                                            注册动态查询结果
+                                            Table Function调用自定义方法
+                                            开窗分组计数
+                                            创建doris映射表
+                                            写入doris
+    realtime-dws-traffic-vc-ch-ar-is_new-page-view-window:
+                                            流中数据转jsonObject
+                                            按照mid对流中数据进行分组
+                                            再次对流中数据进行类型转换  jsonObj->统计的实体类对象
+                                                使用状态算子统计uv
+                                                使用last_page_id统计sv
+                                                pv直接设置为1L
+                                                durSum去json中during_time字段的值
+                                            指定ts字段为水位线
+                                            分组,按照统计的维度分组
+                                            开窗聚合, ReduceFunction 对窗口内的数据进行聚合操作,WindowFunction 将聚合结果与窗口的开始时间、结束时间以及日期信息关联起来
+                                            实体类转jsonObject,写入doris
+
+    realtime-dws-traffic-home-detail-page-view-window:
+                                            读取页面数据,对流进行类型转换 jsonStr->jsonObject
+                                            过滤首页以及详情页
+                                            指定ts为事件时间,设置为水位线
+                                            按mid分组
+                                            使用状态编程,判断是否为首页以及详情页的独立访客,并封装为实体类
+                                            开10s窗扣,聚合指标,并且添加时间指标
+                                            转为jsonStr格式,写入doris
+    realtime-dws-user-user-login-window:
+                                            对流中数据进行类型转换    jsonStr->jsonObj
+                                            过滤出登录行为
+                                            指定watermark
+                                            按照uid进行分组
+                                            使用Flink的状态编程  判断是否为独立用户以及回流用户
+                                            开窗聚合
+                                            将聚合结果写到Doris
+    realtime-dws-trade-cart-add-uu-window:
+                                            读取kafka中dwd_trade_cart_add数据
+                                            对流中的数据类型进行转换   jsonStr->jsonObj
+                                            指定Watermark以及提取事件时间字段
+                                            按照用户的id进行分组
+                                            使用Flink的状态编程  判断是否为加购独立用户
+                                            开窗聚合每日加购用户数,补充stt,edt,curDate到实体类
+                                            写入doris
+    realtime-dws-trade-sku-order-window
+                                            过滤空消息  并对流中数据进行类型转换    jsonStr->jsonObj
+                                            按照唯一键(订单明细的id)进行分组
+                                            使用状态+抵消的方法对重复的id去重
+                                            指定水位线
+                                            提取度量值字段,写入jsonObject
+                                            按sku_id分组,准备进行度量值聚合
+                                            开窗,聚合度量值
+                                            异步IO关联补充维度数据
+                                            写入doris
+
+    realtime-dws-trade-province-order-window
+                                            过滤空数据，并且酱string转换为JsonObject
+                                            按照唯一键(订单明细的id)进行分组
+                                            使用状态变量追加负的度量值的实现去重
+                                            设置水位线
+                                            提取需要的字段到新的json
+                                            按省份分组
+                                            开窗聚合，统计订单总数和订单总金额，补充窗口时间字段
+                                            使用异步IO关联省份名
+                                            写入doris
+    ADS：使用doris创建fineReport大屏
+
+
+
+
+
+
+
+
+
+
+
