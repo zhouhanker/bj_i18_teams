@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.sdy.bean.DateFormatUtil;
 import com.sdy.bean.KafkaUtil;
-import com.sdy.common.utils.FlinkSinkUtil;
+import com.sdy.bean.FlinkSinkUtil;
 import com.sdy.dws.util.TrafficHomeDetailPageViewBean;
 import lombok.SneakyThrows;
 import org.apache.commons.lang.StringUtils;
@@ -166,17 +166,17 @@ public class dwsHomePageView {
 
         reduceDS.print();
 
-//        SingleOutputStreamOperator<String> map = reduceDS
-//                //在向Doris写数据前，将流中统计的实体类对象转换为json格式字符串
-//                .map(new MapFunction<TrafficHomeDetailPageViewBean, String>() {
-//                    @Override
-//                    public String map(TrafficHomeDetailPageViewBean bean) throws Exception {
-//                        SerializeConfig config = new SerializeConfig();
-//                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
-//                        return JSON.toJSONString(bean, config);
-//                    }
-//                });
-//        map.sinkTo(FlinkSinkUtil.getDorisSink("dws_traffic_home_detail_page_view_window"));
+        SingleOutputStreamOperator<String> map = reduceDS
+                //在向Doris写数据前，将流中统计的实体类对象转换为json格式字符串
+                .map(new MapFunction<TrafficHomeDetailPageViewBean, String>() {
+                    @Override
+                    public String map(TrafficHomeDetailPageViewBean bean) throws Exception {
+                        SerializeConfig config = new SerializeConfig();
+                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
+                        return JSON.toJSONString(bean, config);
+                    }
+                });
+        map.sinkTo(FlinkSinkUtil.getDorisSink("dws_traffic_home_detail_page_view_window"));
 
 
         env.execute();

@@ -5,10 +5,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.serializer.SerializeConfig;
-import com.sdy.bean.HBaseUtil;
 import com.sdy.bean.DateFormatUtil;
-
-import com.sdy.common.utils.FlinkSinkUtil;
+import com.sdy.bean.FlinkSinkUtil;
+import com.sdy.bean.HBaseUtil;
 import com.sdy.domain.Constant;
 import com.sdy.dws.util.CustomStringDeserializationSchema;
 import com.sdy.dws.util.TradeProvinceOrderBean;
@@ -239,15 +238,15 @@ public class dwsProvinceOrde {
         });
         withC1DS.print();
 
-//        withC1DS.map(new MapFunction<TradeProvinceOrderBean, String>() {
-//                    @Override
-//                    public String map(TradeProvinceOrderBean bean) throws Exception {
-//                        SerializeConfig config = new SerializeConfig();
-//                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
-//                        return JSON.toJSONString(bean, config);
-//                    }
-//                } )
-//                .sinkTo(FlinkSinkUtil.getDorisSink("dws_trade_province_order_window"));
+        withC1DS.map(new MapFunction<TradeProvinceOrderBean, String>() {
+                    @Override
+                    public String map(TradeProvinceOrderBean bean) throws Exception {
+                        SerializeConfig config = new SerializeConfig();
+                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
+                        return JSON.toJSONString(bean, config);
+                    }
+                } )
+                .sinkTo(FlinkSinkUtil.getDorisSink("dws_trade_province_order_window"));
 
         env.execute();
     }

@@ -43,5 +43,5 @@ public class Constant {
 //
     public static final String DORIS_FE_NODES = "hadoop102:7030";
 //
-    public static final String DORIS_DATABASE = "dev_v1_danyu_shi";
+    public static final String DORIS_DATABASE = "dev_danyu";
 }

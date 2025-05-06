@@ -86,30 +86,30 @@ public class dwsPage {
                 " count(*) keyword_count " +
                 "from table( tumble(table keyword_table, descriptor(et), interval '5' second ) ) " +
                 "group by window_start, window_end, keyword ");
-        result.execute().print();
+//        result.execute().print();
 
 
         // 5. 写出到 doris 中http://10.39.48.33:8030/
-//        tableEnv.executeSql("create table dws_traffic_source_keyword_page_view_window(" +
-//                "  stt string, " +  // 2023-07-11 14:14:14
-//                "  edt string, " +
-//                "  cur_date string, " +
-//                "  keyword string, " +
-//                "  keyword_count bigint " +
-//                ")with(" +
-//                " 'connector' = 'doris'," +
-//                " 'fenodes' = '10.39.48.33:8030'," +
-//                "  'table.identifier' = 'dev_v1_danyu_shi.dws_traffic_source_keyword_page_view_window'," +
-//                "  'username' = 'admin'," +
-//                "  'password' = 'zh1028,./', " +
-//                "  'sink.properties.format' = 'json', " +
-//                "  'sink.buffer-count' = '4', " +
-//                "  'sink.buffer-size' = '4086'," +
-////                "  'sink.enable-2pc' = 'false', " + // 测试阶段可以关闭两阶段提交,方便测试
-//                "  'sink.properties.read_json_by_line' = 'true' " +
-//                ")");
-//
-//        result.executeInsert("dws_traffic_source_keyword_page_view_window");
+        tableEnv.executeSql("create table dws_traffic_source_keyword_page_view_window(" +
+                "  stt string, " +  // 2023-07-11 14:14:14
+                "  edt string, " +
+                "  cur_date string, " +
+                "  keyword string, " +
+                "  keyword_count bigint " +
+                ")with(" +
+                " 'connector' = 'doris'," +
+                " 'fenodes' = '10.160.60.14:8030'," +
+                "  'table.identifier' = 'dev_danyu.dws_traffic_source_keyword_page_view_window'," +
+                "  'username' = 'admin'," +
+                "  'password' = 'zh1028,./', " +
+                "  'sink.properties.format' = 'json', " +
+                "  'sink.buffer-count' = '4', " +
+                "  'sink.buffer-size' = '4086'," +
+//                "  'sink.enable-2pc' = 'false', " + // 测试阶段可以关闭两阶段提交,方便测试
+                "  'sink.properties.read_json_by_line' = 'true' " +
+                ")");
+
+        result.executeInsert("dws_traffic_source_keyword_page_view_window");
 
 //        env.execute();
 
