@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.sdy.bean.DateFormatUtil;
+import com.sdy.bean.FlinkSinkUtil;
 import com.sdy.bean.KafkaUtil;
 import com.sdy.dws.util.CartAddUuBean;
 import lombok.SneakyThrows;
@@ -146,15 +147,15 @@ public class dwsuu {
         // 7.将聚合的结果写到Doris
         aggregateDS.print();
 
-//        aggregateDS.map(new MapFunction<CartAddUuBean, String>() {
-//            @Override
-//            public String map(CartAddUuBean bean)  {
-//                SerializeConfig config = new SerializeConfig();
-//                config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
-//                return JSON.toJSONString(bean, config);
-//            }
-//        } )
-//                .sinkTo(FlinkSinkUtil.getDorisSink("dws_trade_cart_add_uu_window"));
+        aggregateDS.map(new MapFunction<CartAddUuBean, String>() {
+            @Override
+            public String map(CartAddUuBean bean)  {
+                SerializeConfig config = new SerializeConfig();
+                config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
+                return JSON.toJSONString(bean, config);
+            }
+        } )
+                .sinkTo(FlinkSinkUtil.getDorisSink("dws_trade_cart_add_uu_window"));
 
 
 

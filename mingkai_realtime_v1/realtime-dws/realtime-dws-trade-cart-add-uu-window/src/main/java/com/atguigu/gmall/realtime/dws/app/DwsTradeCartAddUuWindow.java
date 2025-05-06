@@ -27,7 +27,7 @@ import org.apache.flink.streaming.api.functions.windowing.AllWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
-
+import org.apache.flink.util.OutputTag;
 /**
  * @author Felix
  * @date 2024/6/11

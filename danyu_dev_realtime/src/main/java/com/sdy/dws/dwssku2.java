@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.sdy.bean.DateFormatUtil;
-import com.sdy.common.utils.FlinkSinkUtil;
+import com.sdy.bean.FlinkSinkUtil;
 import com.sdy.dws.util.CustomStringDeserializationSchema;
 import com.sdy.dws.util.TradeSkuOrderBean;
 import com.sdy.function.DimAsyncFunction;
@@ -337,15 +337,15 @@ public class dwssku2 {
 
 
         // 15.将关联的结果写到Doris表中
-//       withC1DS.map(new MapFunction<TradeSkuOrderBean, String>() {
-//            @Override
-//            public String map(TradeSkuOrderBean bean){
-//                SerializeConfig config = new SerializeConfig();
-//                config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
-//                return JSON.toJSONString(bean, config);
-//            }
-//        } )
-//                .sinkTo(FlinkSinkUtil.getDorisSink("dws_trade_sku_order_window"));
+       withC1DS.map(new MapFunction<TradeSkuOrderBean, String>() {
+            @Override
+            public String map(TradeSkuOrderBean bean){
+                SerializeConfig config = new SerializeConfig();
+                config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
+                return JSON.toJSONString(bean, config);
+            }
+        } )
+                .sinkTo(FlinkSinkUtil.getDorisSink("dws_trade_sku_order_window"));
 
         env.execute();
     }

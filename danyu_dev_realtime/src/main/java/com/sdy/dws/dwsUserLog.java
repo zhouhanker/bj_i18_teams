@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.sdy.bean.DateFormatUtil;
+import com.sdy.bean.FlinkSinkUtil;
 import com.sdy.bean.KafkaUtil;
 import com.sdy.dws.util.UserLoginBean;
 
@@ -162,17 +163,17 @@ public class dwsUserLog {
         );
 //         8.将聚合结果写到Doris
         reduceDS.print();
-//        reduceDS
-//                //在向Doris写数据前，将流中统计的实体类对象转换为json格式字符串
-//                .map(new MapFunction<UserLoginBean, String>() {
-//                    @Override
-//                    public String map(UserLoginBean bean) {
-//                        SerializeConfig config = new SerializeConfig();
-//                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
-//                        return JSON.toJSONString(bean, config);
-//                    }
-//                } )
-//                .sinkTo(FlinkSinkUtil.getDorisSink("dws_user_user_login_window"));
+        reduceDS
+                //在向Doris写数据前，将流中统计的实体类对象转换为json格式字符串
+                .map(new MapFunction<UserLoginBean, String>() {
+                    @Override
+                    public String map(UserLoginBean bean) {
+                        SerializeConfig config = new SerializeConfig();
+                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
+                        return JSON.toJSONString(bean, config);
+                    }
+                } )
+                .sinkTo(FlinkSinkUtil.getDorisSink("dws_user_user_login_window"));
 
 
         env.execute();

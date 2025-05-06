@@ -6,6 +6,7 @@ import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.serializer.SerializeConfig;
 
 import com.sdy.bean.DateFormatUtil;
+import com.sdy.bean.FlinkSinkUtil;
 import com.sdy.bean.KafkaUtil;
 import com.sdy.dws.util.PageViewTable;
 import lombok.SneakyThrows;
@@ -167,17 +168,17 @@ public class dwsVcNewPage {
         reduceDS.print();
 
         // 8.将聚合的结果写到Doris表
-//        reduceDS
-//                //在向Doris写数据前，将流中统计的实体类对象转换为json格式字符串
-//                .map(new MapFunction<PageViewTable, String>() {
-//                    @Override
-//                    public String map(PageViewTable bean)  {
-//                        SerializeConfig config = new SerializeConfig();
-//                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
-//                        return JSON.toJSONString(bean, config);
-//                    }
-//                })
-//                .sinkTo(FlinkSinkUtil.getDorisSink("dws_traffic_vc_ch_ar_is_new_page_view_window"));
+        reduceDS
+                //在向Doris写数据前，将流中统计的实体类对象转换为json格式字符串
+                .map(new MapFunction<PageViewTable, String>() {
+                    @Override
+                    public String map(PageViewTable bean)  {
+                        SerializeConfig config = new SerializeConfig();
+                        config.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCase);
+                        return JSON.toJSONString(bean, config);
+                    }
+                })
+                .sinkTo(FlinkSinkUtil.getDorisSink("dws_traffic_vc_ch_ar_is_new_page_view_window"));
 
 
 
