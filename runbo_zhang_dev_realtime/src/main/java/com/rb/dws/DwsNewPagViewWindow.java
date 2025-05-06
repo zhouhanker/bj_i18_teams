@@ -100,7 +100,7 @@ public class DwsNewPagViewWindow {
         //设置水位线
         SingleOutputStreamOperator<JSONObject> watermarksDs = mapData.assignTimestampsAndWatermarks(
                 WatermarkStrategy
-                        .<JSONObject>forBoundedOutOfOrderness(Duration.ofSeconds(5))
+                        .<JSONObject>forBoundedOutOfOrderness(Duration. ofSeconds(5))
                         .withTimestampAssigner(new SerializableTimestampAssigner<JSONObject>() {
                             @Override
                             public long extractTimestamp(JSONObject element, long recordTimestamp) {
@@ -144,7 +144,10 @@ public class DwsNewPagViewWindow {
                                 r1.put("ch", ch);
                                 r1.put("is_new", isNew);
                                 r1.put("vc", vc);
-                                return r1;
+                                JSONObject object = new JSONObject();
+                                object.put("test", "11111111111111");
+
+                                return object;
                             }
                         }, new WindowFunction<JSONObject, JSONObject, Tuple4<String, String, String, String>, TimeWindow>() {
                             @Override
