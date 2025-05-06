@@ -165,7 +165,7 @@ public class DwsNewPagViewWindow {
                             }
                         }
                 );
-        reduceDs.print();
+//        reduceDs.print();
 
 
         env.execute();
