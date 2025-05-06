@@ -1,12 +1,12 @@
-package com.zpy.stream.realtime.v1.app.dwd;
+package com.zpy.app.dwd;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.utils.DateFormatUtil;
-import com.zpy.stream.realtime.v1.utils.FlinkSinkUtil;
-import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
+import com.zpy.constant.Constant;
+import com.zpy.utils.DateFormatUtil;
+import com.zpy.utils.FlinkSinkUtil;
+import com.zpy.utils.FlinkSourceUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.RichMapFunction;

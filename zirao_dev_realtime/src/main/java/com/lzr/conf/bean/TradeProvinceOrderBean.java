@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 /**
- * @Package com.lzr.retail.com.lzy.stream.realtime.v1.realtime.bean.TradeProvinceOrderBean
+ * @Package com.lzr.retail.com.lzy.realtime.bean.TradeProvinceOrderBean
  * @Author lv.zirao
  * @Date 2025/4/8 8:49
  * @description: TradeProvinceOrderBean

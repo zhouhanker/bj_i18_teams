@@ -1,9 +1,9 @@
-package com.zpy.stream.realtime.v1.utils;
+package com.zpy.utils;
 
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import com.ververica.cdc.debezium.JsonDebeziumDeserializationSchema;
-import com.zpy.stream.realtime.v1.constant.Constant;
+import com.zpy.constant.Constant;
 import org.apache.flink.api.common.serialization.DeserializationSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.connector.kafka.source.KafkaSource;

@@ -1,15 +1,15 @@
-package com.zpy.stream.realtime.v1.app.dim;
+package com.zpy.app.dim;
 
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
-import com.zpy.stream.realtime.v1.bean.TableProcessDim;
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.function.HBaseSinkFunction;
-import com.zpy.stream.realtime.v1.function.TableProcessFunction;
-import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
-import com.zpy.stream.realtime.v1.utils.HBaseUtil;
+import com.zpy.bean.TableProcessDim;
+import com.zpy.constant.Constant;
+import com.zpy.function.HBaseSinkFunction;
+import com.zpy.function.TableProcessFunction;
+import com.zpy.utils.FlinkSourceUtil;
+import com.zpy.utils.HBaseUtil;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.RichMapFunction;
@@ -31,7 +31,7 @@ import org.apache.hadoop.hbase.client.Connection;
 /**
  * 实时维度数据处理主程序
  * 功能：从Kafka读取业务数据，从MySQL读取配置信息，处理后写入HBase
- * @Package com.zpy.stream.realtime.v1.app.bim.BaseApp
+ * @Package com.zpy.app.bim.BaseApp
  * @Author pengyu_zhu
  */
 public class BaseApp {

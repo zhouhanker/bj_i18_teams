@@ -1,7 +1,7 @@
-package com.zpy.stream.realtime.v1.utils;
+package com.zpy.utils;
 
 
-import com.zpy.stream.realtime.v1.constant.Constant;
+import com.zpy.constant.Constant;
 
 /**
  * @author Felix

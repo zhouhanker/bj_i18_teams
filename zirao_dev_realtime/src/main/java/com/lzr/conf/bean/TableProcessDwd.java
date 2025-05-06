@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Package com.lzr.retail.com.lzy.stream.realtime.v1.realtime.bean.TableProcessDwd
+ * @Package com.lzr.retail.com.lzy.realtime.bean.TableProcessDwd
  * @Author lv.zirao
  * @Date 2025/4/8 11:05
  * @description: TableProcessDwd

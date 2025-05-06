@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Package com.lzr.retail.com.lzy.stream.realtime.v1.realtime.bean.TrafficPageViewBean
+ * @Package com.lzr.retail.com.lzy.realtime.bean.TrafficPageViewBean
  * @Author lv.zirao
  * @Date 2025/4/8 8:53
  * @description: TrafficPageViewBean

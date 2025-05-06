@@ -1,4 +1,4 @@
-package com.zpy.stream.realtime.v1.utils;
+package com.zpy.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

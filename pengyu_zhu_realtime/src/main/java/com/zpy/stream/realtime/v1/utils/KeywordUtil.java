@@ -1,4 +1,4 @@
-package com.zpy.stream.realtime.v1.utils;
+package com.zpy.utils;
 
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Package com.zpy.stream.realtime.v1.utils.KeywordUtil
+ * @Package com.zpy.utils.KeywordUtil
  * @Author pengyu_zhu
  * @Date 2025/4/22 15:27
  * @description: KeywordUtil

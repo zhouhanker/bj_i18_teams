@@ -1,10 +1,10 @@
-package com.zpy.stream.realtime.v1.function;
+package com.zpy.function;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.stream.realtime.v1.bean.DimJoinFunction;
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.utils.HBaseUtil;
-import com.zpy.stream.realtime.v1.utils.RedisUtil;
+import com.zpy.bean.DimJoinFunction;
+import com.zpy.constant.Constant;
+import com.zpy.utils.HBaseUtil;
+import com.zpy.utils.RedisUtil;
 import io.lettuce.core.api.StatefulRedisConnection;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.async.ResultFuture;
@@ -18,7 +18,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * @Package com.zpy.stream.realtime.v1.function.DimAsyncFunction
+ * @Package com.zpy.function.DimAsyncFunction
  * @Author pengyu_zhu
  * @Date 2025/4/22 15:26
  * @description: DimAsyncFunction
