@@ -8,7 +8,7 @@ import constant.Constant;
 import utils.SQLUtil;
 
 /**
- * @Package com.lzy.com.lzy.com.lzy.v2.app.bwd.DwdTradeCartAdd
+ * @Package dwd.DwdTradeCartAdd
  * @Author yinshi
  * @Date 2025/5/4 15:49
  * @description: DwdTradeCartAdd

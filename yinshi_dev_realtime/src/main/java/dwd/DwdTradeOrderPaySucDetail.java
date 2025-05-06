@@ -10,7 +10,7 @@ import utils.SQLUtil;
 import java.time.Duration;
 
 /**
- * @Package com.lzy.com.lzy.com.lzy.v2.app.bwd.DwdTradeOrderPaySucDetail
+ * @Package dwd.DwdTradeOrderPaySucDetail
  * @Author yinshi
  * @Date 2025/5/4 15:04
  * @description: DwdTradeOrderPaySucDetail
