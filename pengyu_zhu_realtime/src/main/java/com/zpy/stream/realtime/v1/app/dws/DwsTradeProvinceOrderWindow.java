@@ -1,14 +1,14 @@
-package com.zpy.app.dws;
+package com.zpy.stream.realtime.v1.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.bean.TradeProvinceOrderBean;
-import com.zpy.constant.Constant;
-import com.zpy.function.BeanToJsonStrMapFunction;
-import com.zpy.utils.DateFormatUtil;
-import com.zpy.utils.FlinkSinkUtil;
-import com.zpy.utils.FlinkSourceUtil;
-import com.zpy.utils.HBaseUtil;
+import com.zpy.stream.realtime.v1.bean.TradeProvinceOrderBean;
+import com.zpy.stream.realtime.v1.constant.Constant;
+import com.zpy.stream.realtime.v1.function.BeanToJsonStrMapFunction;
+import com.zpy.stream.realtime.v1.utils.DateFormatUtil;
+import com.zpy.stream.realtime.v1.utils.FlinkSinkUtil;
+import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
+import com.zpy.stream.realtime.v1.utils.HBaseUtil;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -39,13 +39,6 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashSet;
 
-/**
- * @Package com.zpy.app.dws.DwsTradeProvinceOrderWindow
- * @Author pengyu_zhu
- * @Date 2025/4/21 14:56
- * @description: DwsTradeProvinceOrderWindow
- */
-
 public class DwsTradeProvinceOrderWindow {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -56,7 +49,7 @@ public class DwsTradeProvinceOrderWindow {
 
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3,3000L));
 
-        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_trade_order_detail_pengyu_zhu", "dws_trade_province_order_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_trade_order_detail_zhengwei_zhou", "dws_trade_province_order_window");
 
         DataStreamSource<String> kafkaStrDS
                 = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
@@ -126,7 +119,7 @@ public class DwsTradeProvinceOrderWindow {
                                 .provinceId(provinceId)
                                 .orderAmount(splitTotalAmount)
                                 .orderIdSet(new HashSet<>(Collections.singleton(orderId)))
-                               // .ts_ms(ts)
+                                // .ts_ms(ts)
                                 .build();
                     }
                 }

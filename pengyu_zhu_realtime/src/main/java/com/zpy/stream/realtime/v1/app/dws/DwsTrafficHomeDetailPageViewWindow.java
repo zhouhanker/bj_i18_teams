@@ -1,12 +1,12 @@
-package com.zpy.app.dws;
+package com.zpy.stream.realtime.v1.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.bean.TrafficHomeDetailPageViewBean;
-import com.zpy.function.BeanToJsonStrMapFunction;
-import com.zpy.utils.DateFormatUtil;
-import com.zpy.utils.FlinkSinkUtil;
-import com.zpy.utils.FlinkSourceUtil;
+import com.zpy.stream.realtime.v1.bean.TrafficHomeDetailPageViewBean;
+import com.zpy.stream.realtime.v1.function.BeanToJsonStrMapFunction;
+import com.zpy.stream.realtime.v1.utils.DateFormatUtil;
+import com.zpy.stream.realtime.v1.utils.FlinkSinkUtil;
+import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -30,13 +30,6 @@ import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindo
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
-/**
- * @Package com.zpy.app.dws.DwsTrafficHomeDetailPageViewWindow
- * @Author pengyu_zhu
- * @Date 2025/4/18 15:03
- * @description: DwsTrafficHomeDetailPageViewWindow
- */
-
 public class DwsTrafficHomeDetailPageViewWindow {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -45,7 +38,7 @@ public class DwsTrafficHomeDetailPageViewWindow {
 
         env.enableCheckpointing(5000L, CheckpointingMode.EXACTLY_ONCE);
 
-        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_traffic_page", "dws_traffic_home_detail_page_view_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_traffic_page_zhengwei_zhou", "dws_traffic_home_detail_page_view_window");
 
         DataStreamSource<String> kafkaStrDS = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
 
