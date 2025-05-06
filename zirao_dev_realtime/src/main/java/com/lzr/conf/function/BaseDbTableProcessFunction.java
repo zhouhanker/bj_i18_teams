@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.util.*;
 
 /**
- * @Package com.lzr.stream.realtime.v1.function.BaseDbTableProcessFunction
+ * @Package com.lzr.function.BaseDbTableProcessFunction
  * @Author lv.zirao
  * @Date 2025/4/30 9:37
  * @description: BaseDbTableProcessFunction

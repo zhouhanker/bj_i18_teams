@@ -1,8 +1,8 @@
-package com.zpy.stream.realtime.v1.function;
+package com.zpy.function;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.stream.realtime.v1.bean.TableProcessDim;
-import com.zpy.stream.realtime.v1.utils.JdbcUtil;
+import com.zpy.bean.TableProcessDim;
+import com.zpy.utils.JdbcUtil;
 import org.apache.flink.api.common.state.BroadcastState;
 import org.apache.flink.api.common.state.MapStateDescriptor;
 import org.apache.flink.api.common.state.ReadOnlyBroadcastState;
@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.util.*;
 
 /**
- * @Package com.zpy.stream.realtime.v1.function.TableProcessFunction
+ * @Package com.zpy.function.TableProcessFunction
  * @Author pengyu_zhu
  * @Date 2025/4/21 9:42
  * @description: TableProcessFunction

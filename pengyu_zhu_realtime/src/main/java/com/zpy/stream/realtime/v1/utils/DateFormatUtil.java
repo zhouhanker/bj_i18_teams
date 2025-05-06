@@ -1,4 +1,4 @@
-package com.zpy.stream.realtime.v1.utils;
+package com.zpy.utils;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 

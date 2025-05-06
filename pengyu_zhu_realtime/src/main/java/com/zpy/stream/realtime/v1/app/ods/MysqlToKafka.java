@@ -1,8 +1,8 @@
-package com.zpy.stream.realtime.v1.app.ods;
+package com.zpy.app.ods;
 
 import com.ververica.cdc.connectors.mysql.source.MySqlSource;
-import com.zpy.stream.realtime.v1.utils.FlinkSinkUtil;
-import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
+import com.zpy.utils.FlinkSinkUtil;
+import com.zpy.utils.FlinkSourceUtil;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.connector.kafka.sink.KafkaSink;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -11,7 +11,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 /**
  * MySQL 到 Kafka 的数据传输程序
  * 功能：使用 Flink CDC 捕获 MySQL 数据库变更，并将数据实时同步到 Kafka
- * @Package com.zpy.stream.realtime.v1.app.ods.MysqlToKafka
+ * @Package com.zpy.app.ods.MysqlToKafka
  * @Author pengyu_zhu
  */
 public class MysqlToKafka {

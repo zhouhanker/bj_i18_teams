@@ -7,7 +7,7 @@ import org.apache.flink.table.functions.TableFunction;
 import org.apache.flink.types.Row;
 
 /**
- * @Package com.zzw.stream.realtime.v1.function.KeywordUDTF
+ * @Package com.zzw.function.KeywordUDTF
  * @Author zhengwei_zhou
  * @Date 2025/4/22 15:27
  * @description: KeywordUDTF

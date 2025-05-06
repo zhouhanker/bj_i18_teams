@@ -36,7 +36,7 @@ import org.apache.hadoop.hbase.client.Connection;
 import java.math.BigDecimal;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.dws.DwsTradeSkuOrderWindow
+ * @Package com.lzy.app.dws.DwsTradeSkuOrderWindow
  * @Author zhengwei_zhou
  * @Date 2025/4/18 13:52
  * @description: DwsTradeSkuOrderWindow

@@ -10,7 +10,7 @@ import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 import java.time.Duration;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.bwd.DwdTradeOrderPaySucDetail
+ * @Package com.lzy.app.bwd.DwdTradeOrderPaySucDetail
  * @Author zhengwei_zhou
  * @Date 2025/4/14 11:04
  * @description: DwdTradeOrderPaySucDetail

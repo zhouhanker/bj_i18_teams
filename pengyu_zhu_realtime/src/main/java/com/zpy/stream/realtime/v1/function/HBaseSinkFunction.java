@@ -1,10 +1,10 @@
-package com.zpy.stream.realtime.v1.function;
+package com.zpy.function;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.stream.realtime.v1.bean.TableProcessDim;
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.utils.HBaseUtil;
-import com.zpy.stream.realtime.v1.utils.RedisUtil;
+import com.zpy.bean.TableProcessDim;
+import com.zpy.constant.Constant;
+import com.zpy.utils.HBaseUtil;
+import com.zpy.utils.RedisUtil;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
@@ -12,7 +12,7 @@ import org.apache.hadoop.hbase.client.Connection;
 import redis.clients.jedis.Jedis;
 
 /**
- * @Package com.zpy.stream.realtime.v1.function.HBaseSinkFunction
+ * @Package com.zpy.function.HBaseSinkFunction
  * @Author pengyu_zhu
  * @Date 2025/4/21 9:41
  * @description: HBaseSinkFunction

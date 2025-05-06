@@ -1,13 +1,13 @@
-package com.zpy.stream.realtime.v1.function;
+package com.zpy.function;
 
-import com.zpy.stream.realtime.v1.utils.KeywordUtil;
+import com.zpy.utils.KeywordUtil;
 import org.apache.flink.table.annotation.DataTypeHint;
 import org.apache.flink.table.annotation.FunctionHint;
 import org.apache.flink.table.functions.TableFunction;
 import org.apache.flink.types.Row;
 
 /**
- * @Package com.zpy.stream.realtime.v1.function.KeywordUDTF
+ * @Package com.zpy.function.KeywordUDTF
  * @Author pengyu_zhu
  * @Date 2025/4/22 15:27
  * @description: KeywordUDTF

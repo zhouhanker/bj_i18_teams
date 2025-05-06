@@ -1,14 +1,14 @@
-package com.zpy.stream.realtime.v1.app.dwd;
+package com.zpy.app.dwd;
 
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.utils.SQLUtil;
+import com.zpy.constant.Constant;
+import com.zpy.utils.SQLUtil;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
- * @Package com.zpy.stream.realtime.v1.app.bwd.DwdInteractionCommentInfo
+ * @Package com.zpy.app.bwd.DwdInteractionCommentInfo
  * @Author pengyu_zhu
  * @Date 2025/4/11 15:50
  * @description: DwdInteractionCommentInfo
