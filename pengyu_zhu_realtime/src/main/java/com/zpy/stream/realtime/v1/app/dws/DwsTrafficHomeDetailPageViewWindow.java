@@ -30,13 +30,6 @@ import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindo
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
-/**
- * @Package com.zpy.stream.realtime.v1.app.dws.DwsTrafficHomeDetailPageViewWindow
- * @Author pengyu_zhu
- * @Date 2025/4/18 15:03
- * @description: DwsTrafficHomeDetailPageViewWindow
- */
-
 public class DwsTrafficHomeDetailPageViewWindow {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -45,7 +38,7 @@ public class DwsTrafficHomeDetailPageViewWindow {
 
         env.enableCheckpointing(5000L, CheckpointingMode.EXACTLY_ONCE);
 
-        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_traffic_page", "dws_traffic_home_detail_page_view_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_traffic_page_zhengwei_zhou", "dws_traffic_home_detail_page_view_window");
 
         DataStreamSource<String> kafkaStrDS = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
 

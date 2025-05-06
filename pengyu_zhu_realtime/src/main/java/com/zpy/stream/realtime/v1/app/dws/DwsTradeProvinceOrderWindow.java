@@ -39,13 +39,6 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashSet;
 
-/**
- * @Package com.zpy.stream.realtime.v1.app.dws.DwsTradeProvinceOrderWindow
- * @Author pengyu_zhu
- * @Date 2025/4/21 14:56
- * @description: DwsTradeProvinceOrderWindow
- */
-
 public class DwsTradeProvinceOrderWindow {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -56,7 +49,7 @@ public class DwsTradeProvinceOrderWindow {
 
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3,3000L));
 
-        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_trade_order_detail_pengyu_zhu", "dws_trade_province_order_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_trade_order_detail_zhengwei_zhou", "dws_trade_province_order_window");
 
         DataStreamSource<String> kafkaStrDS
                 = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
@@ -126,7 +119,7 @@ public class DwsTradeProvinceOrderWindow {
                                 .provinceId(provinceId)
                                 .orderAmount(splitTotalAmount)
                                 .orderIdSet(new HashSet<>(Collections.singleton(orderId)))
-                               // .ts_ms(ts)
+                                // .ts_ms(ts)
                                 .build();
                     }
                 }
