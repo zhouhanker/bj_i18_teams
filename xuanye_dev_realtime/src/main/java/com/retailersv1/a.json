@@ -1,0 +1,40 @@
+{
+  "before": null,
+  "after": {
+    "id": 17,
+    "login_name": "ggycwk2b5",
+    "nick_name": "阿善",
+    "passwd": null,
+    "name": "钱善",
+    "phone_num": "13425528535",
+    "email": "ggycwk2b5@163.com",
+    "head_img": null,
+    "user_level": "1",
+    "birthday": -511,
+    "gender": "M",
+    "create_time": 1654646400000,
+    "operate_time": null,
+    "status": null
+  },
+  "source": {
+    "version": "1.9.7.Final",
+    "connector": "mysql",
+    "name": "mysql_binlog_source",
+    "ts_ms": 0,
+    "snapshot": "false",
+    "db": "realtime_v1",
+    "sequence": null,
+    "table": "user_info",
+    "server_id": 0,
+    "gtid": null,
+    "file": "",
+    "pos": 0,
+    "row": 0,
+    "thread": null,
+    "query": null
+  },
+  "op": "r",
+  "ts_ms": 1744294146442,
+  "transaction": null
+}
+
