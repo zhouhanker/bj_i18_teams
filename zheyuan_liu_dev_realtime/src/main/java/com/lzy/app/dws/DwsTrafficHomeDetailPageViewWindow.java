@@ -3,6 +3,7 @@ package com.lzy.app.dws;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lzy.bean.TrafficHomeDetailPageViewBean;
+import com.lzy.constant.Constant;
 import com.lzy.function.BeanToJsonStrMapFunction;
 import com.lzy.utils.DateFormatUtil;
 import com.lzy.utils.FlinkSinkUtil;
@@ -45,7 +46,7 @@ public class DwsTrafficHomeDetailPageViewWindow {
 
         env.enableCheckpointing(5000L, CheckpointingMode.EXACTLY_ONCE);
 
-        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_traffic_page", "dws_traffic_home_detail_page_view_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource(Constant.TOPIC_DWD_TRAFFIC_PAGE, "dws_traffic_home_detail_page_view_window");
 
         DataStreamSource<String> kafkaStrDS = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
 
