@@ -8,7 +8,7 @@ import org.apache.flink.table.functions.TableFunction;
 import org.apache.flink.types.Row;
 
 /**
- * @Package com.stream.realtime.function.KeywordUDTF
+ * @Package com.function.KeywordUDTF
  * @Author song.lihao
  * @Date 2025/4/23 20:54
  * @description:

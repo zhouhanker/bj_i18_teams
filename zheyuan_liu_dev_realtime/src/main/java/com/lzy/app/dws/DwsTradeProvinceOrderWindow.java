@@ -3,6 +3,7 @@ package com.lzy.app.dws;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lzy.bean.TradeProvinceOrderBean;
+import com.lzy.constant.Constant;
 import com.lzy.function.BeanToJsonStrMapFunction;
 import com.lzy.function.DimAsyncFunction;
 import com.lzy.utils.DateFormatUtil;
@@ -35,7 +36,7 @@ import java.util.HashSet;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.dws.DwsTradeProvinceOrderWindow
+ * @Package com.lzy.v1.app.dws.DwsTradeProvinceOrderWindow
  * @Author zheyuan.liu
  * @Date 2025/4/21 14:56
  * @description: DwsTradeProvinceOrderWindow
@@ -51,7 +52,7 @@ public class DwsTradeProvinceOrderWindow {
 
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3,3000L));
 
-        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_trade_order_detail", "dws_trade_province_order_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource(Constant.TOPIC_DWD_TRADE_ORDER_DETAIL, "dws_trade_province_order_window");
 
         DataStreamSource<String> kafkaStrDS
                 = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
