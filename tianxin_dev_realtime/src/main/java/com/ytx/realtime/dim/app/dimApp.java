@@ -34,7 +34,6 @@ public class dimApp extends BaseApp {
             @Override
             public void processElement(String s, ProcessFunction<String, JSONObject>.Context ctx, Collector<JSONObject> out) throws Exception {
                 JSONObject jsonObj = JSON.parseObject(s);
-
                 out.collect(jsonObj);
             }
         });
