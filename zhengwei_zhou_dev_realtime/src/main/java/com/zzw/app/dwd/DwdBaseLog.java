@@ -292,6 +292,7 @@ public class DwdBaseLog {
     private static final String ACTION = "action";
     private static final String PAGE = "page";
 
+
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
