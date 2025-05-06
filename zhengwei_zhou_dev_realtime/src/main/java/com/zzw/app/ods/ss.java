@@ -7,7 +7,7 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
- * @Package com.zzw.stream.realtime.v1.app.ods.ss
+ * @Package com.zzw.app.ods.ss
  * @Author zhengwei_zhou
  * @Date 2025/4/22 13:35
  * @description: ss

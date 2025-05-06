@@ -1,4 +1,4 @@
-package com.zpy.stream.realtime.v1.constant;
+package com.zpy.constant;
 
 /**
  * @Package com.zpy.retail.v1.realtime.constant.Constant

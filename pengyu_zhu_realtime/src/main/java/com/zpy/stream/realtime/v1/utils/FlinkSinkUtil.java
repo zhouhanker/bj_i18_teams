@@ -1,8 +1,8 @@
-package com.zpy.stream.realtime.v1.utils;
+package com.zpy.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.stream.realtime.v1.bean.TableProcessDwd;
-import com.zpy.stream.realtime.v1.constant.Constant;
+import com.zpy.bean.TableProcessDwd;
+import com.zpy.constant.Constant;
 import org.apache.doris.flink.cfg.DorisExecutionOptions;
 import org.apache.doris.flink.cfg.DorisOptions;
 import org.apache.doris.flink.cfg.DorisReadOptions;

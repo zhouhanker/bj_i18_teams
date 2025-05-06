@@ -1,7 +1,7 @@
-package com.zpy.stream.realtime.v1.app.dwd;
+package com.zpy.app.dwd;
 
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.utils.SQLUtil;
+import com.zpy.constant.Constant;
+import com.zpy.utils.SQLUtil;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.Table;

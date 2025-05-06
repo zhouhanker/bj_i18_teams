@@ -1,8 +1,8 @@
-package com.zpy.stream.realtime.v1.utils;
+package com.zpy.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.CaseFormat;
-import com.zpy.stream.realtime.v1.constant.Constant;
+import com.zpy.constant.Constant;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.conf.Configuration;

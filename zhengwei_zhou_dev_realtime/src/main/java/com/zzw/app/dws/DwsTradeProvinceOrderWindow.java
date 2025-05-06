@@ -40,7 +40,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.dws.DwsTradeProvinceOrderWindow
+ * @Package com.lzy.app.dws.DwsTradeProvinceOrderWindow
  * @Author zhengwei_zhou
  * @Date 2025/4/21 14:56
  * @description: DwsTradeProvinceOrderWindow

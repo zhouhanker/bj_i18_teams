@@ -1,4 +1,4 @@
-package com.zgq.dwd;
+package com.zgq.stream.realtime.v2.app.dwd;
 
 import com.zgq.constant.Constant;
 import com.zgq.utils.SQLUtil;

@@ -1,7 +1,7 @@
 package com.lzr.conf.constant;
 
 /**
- * @Package com.lzr.retail.com.lzy.stream.realtime.v1.realtime.constant.Constant
+ * @Package com.lzr.retail.com.lzy.realtime.constant.Constant
  * @Author lv.zirao
  * @Date 2025/4/7 22:09
  * @description: Constant

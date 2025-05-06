@@ -33,7 +33,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.dws.DwsTrafficVcChArIsNewPageViewWindow
+ * @Package com.lzy.app.dws.DwsTrafficVcChArIsNewPageViewWindow
  * @Author zhengwei_zhou
  * @Date 2025/4/21 9:37
  * @description: DwsTrafficVcChArIsNewPageViewWindow

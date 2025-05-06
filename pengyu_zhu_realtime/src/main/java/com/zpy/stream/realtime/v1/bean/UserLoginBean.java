@@ -1,4 +1,4 @@
-package com.zpy.stream.realtime.v1.bean;
+package com.zpy.bean;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
