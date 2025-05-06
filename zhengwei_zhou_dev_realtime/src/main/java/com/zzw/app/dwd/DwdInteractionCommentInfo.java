@@ -8,7 +8,7 @@ import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.bwd.DwdInteractionCommentInfo
+ * @Package com.lzy.app.bwd.DwdInteractionCommentInfo
  * @Author zhengwei_zhou
  * @Date 2025/4/11 15:50
  * @description: DwdInteractionCommentInfo
@@ -24,7 +24,6 @@ public class DwdInteractionCommentInfo {
 
         // 创建StreamTableEnvironment，用于在流处理环境中进行表和SQL相关操作
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
-
         // 启用检查点机制，每隔5000毫秒（5秒）生成一个检查点
         // 采用EXACTLY_ONCE模式，确保数据处理的准确性，保证每条数据仅被处理一次
         env.enableCheckpointing(5000L, CheckpointingMode.EXACTLY_ONCE);

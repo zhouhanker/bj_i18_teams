@@ -27,7 +27,7 @@ import org.apache.flink.util.Collector;
 import org.apache.hadoop.hbase.client.Connection;
 
 /**
- * @Package com.zzw.stream.realtime.v1.app.bim.BaseApp
+ * @Package com.zzw.app.bim.BaseApp
  * @Author zhengwei_zhou
  * @Date 2025/4/11 9:34
  * @description: BaseApp

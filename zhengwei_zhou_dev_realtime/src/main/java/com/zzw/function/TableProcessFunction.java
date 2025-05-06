@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.util.*;
 
 /**
- * @Package com.zzw.stream.realtime.v1.function.TableProcessFunction
+ * @Package com.zzw.function.TableProcessFunction
  * @Author zhengwei_zhou
  * @Date 2025/4/21 9:42
  * @description: TableProcessFunction

@@ -1,12 +1,12 @@
-package com.zpy.stream.realtime.v1.app.dws;
+package com.zpy.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.stream.realtime.v1.bean.TradeSkuOrderBean;
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.utils.DateFormatUtil;
-import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
-import com.zpy.stream.realtime.v1.utils.HBaseUtil;
+import com.zpy.bean.TradeSkuOrderBean;
+import com.zpy.constant.Constant;
+import com.zpy.utils.DateFormatUtil;
+import com.zpy.utils.FlinkSourceUtil;
+import com.zpy.utils.HBaseUtil;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -34,7 +34,7 @@ import org.apache.hadoop.hbase.client.Connection;
 import java.math.BigDecimal;
 
 /**
- * @Package com.zpy.stream.realtime.v1.app.dws.DwsTradeSkuOrderWindow
+ * @Package com.zpy.app.dws.DwsTradeSkuOrderWindow
  * @Author pengyu_zhu
  * @Date 2025/4/18 13:52
  * @description: DwsTradeSkuOrderWindow

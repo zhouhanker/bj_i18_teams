@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Package com.lzr.stream.realtime.com.lzy.stream.realtime.v1.utils.KeywordUtil
+ * @Package com.lzr.stream.realtime.com.lzy.utils.KeywordUtil
  * @Author lv.zirao
  * @Date 2025/4/18 18:58
  * @description: KeywordUtil

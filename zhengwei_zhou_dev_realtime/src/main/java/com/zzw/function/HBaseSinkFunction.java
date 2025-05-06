@@ -12,7 +12,7 @@ import org.apache.hadoop.hbase.client.Connection;
 import redis.clients.jedis.Jedis;
 
 /**
- * @Package com.zzw.stream.realtime.v1.function.HBaseSinkFunction
+ * @Package com.zzw.function.HBaseSinkFunction
  * @Author zhengwei_zhou
  * @Date 2025/4/21 9:41
  * @description: HBaseSinkFunction

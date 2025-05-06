@@ -1,4 +1,4 @@
-package com.zpy.stream.realtime.v1.bean;
+package com.zpy.bean;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Package com.zpy.stream.realtime.v1.bean.TrafficVcChArIsNewPageViewBean
+ * @Package com.zpy.bean.TrafficVcChArIsNewPageViewBean
  * @Author pengyu_zhu
  * @Date 2025/4/22 15:29
  * @description: TrafficVcChArIsNewPageViewBean

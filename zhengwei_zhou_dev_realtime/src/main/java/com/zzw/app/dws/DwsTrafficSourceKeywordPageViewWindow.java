@@ -8,7 +8,7 @@ import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.dws.DwsTrafficSourceKeywordPageViewWindow
+ * @Package com.lzy.app.dws.DwsTrafficSourceKeywordPageViewWindow
  * @Author zhengwei_zhou
  * @Date 2025/4/18 18:53
  * @description:

@@ -1,14 +1,14 @@
-package com.zpy.stream.realtime.v1.app.dws;
+package com.zpy.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.stream.realtime.v1.bean.TradeProvinceOrderBean;
-import com.zpy.stream.realtime.v1.constant.Constant;
-import com.zpy.stream.realtime.v1.function.BeanToJsonStrMapFunction;
-import com.zpy.stream.realtime.v1.utils.DateFormatUtil;
-import com.zpy.stream.realtime.v1.utils.FlinkSinkUtil;
-import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
-import com.zpy.stream.realtime.v1.utils.HBaseUtil;
+import com.zpy.bean.TradeProvinceOrderBean;
+import com.zpy.constant.Constant;
+import com.zpy.function.BeanToJsonStrMapFunction;
+import com.zpy.utils.DateFormatUtil;
+import com.zpy.utils.FlinkSinkUtil;
+import com.zpy.utils.FlinkSourceUtil;
+import com.zpy.utils.HBaseUtil;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
@@ -40,7 +40,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 /**
- * @Package com.zpy.stream.realtime.v1.app.dws.DwsTradeProvinceOrderWindow
+ * @Package com.zpy.app.dws.DwsTradeProvinceOrderWindow
  * @Author pengyu_zhu
  * @Date 2025/4/21 14:56
  * @description: DwsTradeProvinceOrderWindow

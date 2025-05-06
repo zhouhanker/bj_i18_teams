@@ -1,4 +1,4 @@
-package com.zgq.dws;
+package com.zgq.stream.realtime.v2.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

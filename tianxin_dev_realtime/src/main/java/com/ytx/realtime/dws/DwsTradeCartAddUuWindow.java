@@ -7,6 +7,7 @@ import com.stream.common.utils.DateTimeUtils;
 import com.ytx.base.BaseApp;
 import com.ytx.bean.CartAddUuBean;
 import com.ytx.constant.Constant;
+import com.ytx.util.DateFormatUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -107,10 +108,10 @@ public class DwsTradeCartAddUuWindow extends BaseApp {
                     @Override
                     public void apply(TimeWindow window, Iterable<Long> values, Collector<CartAddUuBean> out) throws Exception {
                         Long cartUUct = values.iterator().next();
-                        String stt = DateTimeUtils.tsToDate(window.getStart());
-//                        String edt = DateFormatUtil.tsToDateTime(window.getEnd());
-                        String curDate = DateTimeUtils.tsToDate(window.getStart());
-                        out.collect(new CartAddUuBean(stt, curDate, cartUUct));
+                        String stt = DateFormatUtil.tsToDate(window.getStart());
+                        String edt = DateFormatUtil.tsToDateTime(window.getEnd());
+                        String curDate = DateFormatUtil.tsToDate(window.getStart());
+                        out.collect(new CartAddUuBean(stt, edt,curDate, cartUUct));
                     }
                 }
         );

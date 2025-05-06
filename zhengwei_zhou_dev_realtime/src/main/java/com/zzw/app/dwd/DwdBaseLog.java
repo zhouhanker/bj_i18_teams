@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Package com.lzy.stream.realtime.v1.app.bwd.DwdBaseLog
+ * @Package com.lzy.app.bwd.DwdBaseLog
  * @Author zheyuan.liu
  * @Date 2025/4/11 10:35
  * @description: DwdBaseLog
@@ -291,6 +291,7 @@ public class DwdBaseLog {
     private static final String DISPLAY = "display";
     private static final String ACTION = "action";
     private static final String PAGE = "page";
+
 
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
