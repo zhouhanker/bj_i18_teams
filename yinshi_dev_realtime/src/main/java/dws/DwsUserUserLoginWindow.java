@@ -31,7 +31,7 @@ import utils.FlinkSinkUtil;
 import utils.FlinkSourceUtil;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.dws.DwsUserUserLoginWindow
+ * @Package dws.DwsUserUserLoginWindow
  * @Author yinshi
  * @Date 2025/5/4 19:56
  * @description: DwsUserUserLoginWindow

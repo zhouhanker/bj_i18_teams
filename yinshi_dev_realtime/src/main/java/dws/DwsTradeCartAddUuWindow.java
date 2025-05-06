@@ -31,7 +31,7 @@ import utils.FlinkSinkUtil;
 import utils.FlinkSourceUtil;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.dws.DwsTradeCartAddUuWindow
+ * @Package dws.DwsTradeCartAddUuWindow
  * @Author yinshi
  * @Date 2025/5/4 14:31
  * @description: DwsTradeCartAddUuWindow
@@ -90,7 +90,7 @@ public class DwsTradeCartAddUuWindow {
                         String curCartDate = DateFormatUtil.tsToDate(ts);
                         if (StringUtils.isEmpty(lastCartDate) || !lastCartDate.equals(curCartDate)) {
                             out.collect(jsonObj);
-                            lastCartDateState.update(curCartDate);
+                            lastCartDateState.update(curCartDate);//././
                         }
                     }
                 }

@@ -8,7 +8,7 @@ import constant.Constant;
 import utils.SQLUtil;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.com.lzy.stream.realtime.v2.app.bwd.DwdInteractionCommentInfo
+ * @Package dwd.DwdInteractionCommentInfo
  * @Author yinshi
  * @Date 2025/5/4 15:50
  * @description: DwdInteractionCommentInfo

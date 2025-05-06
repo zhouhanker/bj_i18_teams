@@ -27,7 +27,7 @@ import utils.FlinkSourceUtil;
 import utils.HBaseUtil;
 
 /**
- * @Package com.lzy.stream.realtime.com.lzy.stream.realtime.v1.base.BaseApp
+ * @Package base.BaseApp
  * @Author yinshi
  * @Date 2025/5/4 18:39
  * @description: BaseApp
