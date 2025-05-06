@@ -5,15 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zh</groupId>
-    <artifactId>bj_i18_teams-v9</artifactId>
+    <artifactId>bj_i18_teams</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>stream-common</module>
-        <module>yuxin_dev_realtime</module>
-        <module>zeyang_dev_realtime</module>
-        <module>runze_dev_realtime</module>
-        <module>yinshi_dev_realtime</module>
+        <module>runbo_zhang_dev_realtime</module>
     </modules>
 
 
