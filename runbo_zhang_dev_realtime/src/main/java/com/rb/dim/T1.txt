@@ -1,0 +1,58 @@
+    private static SingleOutputStreamOperator<JSONObject> fixedNewAndOld(SingleOutputStreamOperator<JSONObject> jsonObjDS) {
+        //按照设备id进行分组
+        KeyedStream<JSONObject, String> keyedDS = jsonObjDS.keyBy(jsonObj -> jsonObj.getJSONObject("common").getString("mid"));
+        //使用Flink的状态编程完成修复
+        SingleOutputStreamOperator<JSONObject> fixedDS = keyedDS.map(
+                new RichMapFunction<JSONObject, JSONObject>() {
+                    private ValueState<String> lastVisitDateState;
+
+                    @Override
+                    public void open(Configuration parameters) throws Exception {
+                        ValueStateDescriptor<String> valueStateDescriptor
+                                = new ValueStateDescriptor<String>("lastVisitDateState", String.class);
+                        valueStateDescriptor.enableTimeToLive(StateTtlConfig.newBuilder(Time.seconds(10))
+                                        .setUpdateType(StateTtlConfig.UpdateType.OnCreateAndWrite)
+                                .build());
+                        lastVisitDateState = getRuntimeContext().getState(valueStateDescriptor);
+                    }
+
+                    @Override
+                    public JSONObject map(JSONObject jsonObj) throws Exception {
+                        //获取is_new的值
+                        String isNew = jsonObj.getJSONObject("common").getString("is_new");
+                        //从状态中获取首次访问日期
+                        String lastVisitDate = lastVisitDateState.value();
+                        //获取当前访问日期
+                        Long ts = jsonObj.getLong("ts");
+                        String curVisitDate = DateFormatUtil.tsToDate(ts);
+
+                        if ("1".equals(isNew)) {
+                            //如果is_new的值为1
+                            if (StringUtils.isEmpty(lastVisitDate)) {
+                                //如果键控状态为null，认为本次是该访客首次访问 APP，将日志中 ts 对应的日期更新到状态中，不对 is_new 字段做修改；
+                                lastVisitDateState.update(curVisitDate);
+                            } else {
+                                //如果键控状态不为null，且首次访问日期不是当日，说明访问的是老访客，将 is_new 字段置为 0；
+                                if (!lastVisitDate.equals(curVisitDate)) {
+                                    isNew = "0";
+                                    jsonObj.getJSONObject("common").put("is_new", isNew);
+                                }
+                            }
+
+                        } else {
+                            //如果 is_new 的值为 0
+                            //	如果键控状态为 null，说明访问 APP 的是老访客但本次是该访客的页面日志首次进入程序。当前端新老访客状态标记丢失时，
+                            // 日志进入程序被判定为新访客，Flink 程序就可以纠正被误判的访客状态标记，只要将状态中的日期设置为今天之前即可。本程序选择将状态更新为昨日；
+                            if (StringUtils.isEmpty(lastVisitDate)) {
+                                String yesterDay = DateFormatUtil.tsToDate(ts - 24 * 60 * 60 * 1000);
+                                lastVisitDateState.update(yesterDay);
+                            }
+                        }
+
+                        return jsonObj;
+                    }
+                }
+        );
+        //fixedDS.print();
+        return fixedDS;
+    }

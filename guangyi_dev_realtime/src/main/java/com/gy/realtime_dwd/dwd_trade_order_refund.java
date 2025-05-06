@@ -54,7 +54,7 @@ public class dwd_trade_order_refund extends BasesqlApp {
         tableEnv.createTemporaryView("order_refund_info", orderRefundInfo);
 //        | +I |                              5 |                             48 |                            239 |
 //        18 |                           1502 |  1 |                        9199.00 |                           1307 |
-//        退款原因具体：4892960933 |                  1743508552000 | 2025-05-05 10:56:57.697 |        1746408149185 |
+//        退款原因具体：4892960933 |                  1743508552000 | 2025-05-05.md 10:56:57.697 |        1746408149185 |
 //                tableEnv.sqlQuery("select * from order_refund_info ").execute().print();
 //        // 3. 过滤订单表中的退单数据: order_info  update
         Table orderInfo = tableEnv.sqlQuery(
