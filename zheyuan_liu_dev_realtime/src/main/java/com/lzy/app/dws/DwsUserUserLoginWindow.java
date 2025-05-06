@@ -3,6 +3,7 @@ package com.lzy.app.dws;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.lzy.bean.UserLoginBean;
+import com.lzy.constant.Constant;
 import com.lzy.function.BeanToJsonStrMapFunction;
 import com.lzy.utils.DateFormatUtil;
 import com.lzy.utils.FlinkSinkUtil;
@@ -47,7 +48,7 @@ public class DwsUserUserLoginWindow {
 
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3,3000L));
 
-        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource("dwd_traffic_page", "dws_user_user_login_window");
+        KafkaSource<String> kafkaSource = FlinkSourceUtil.getKafkaSource(Constant.TOPIC_DWD_TRAFFIC_PAGE, "dws_user_user_login_window");
 
         DataStreamSource<String> kafkaStrDS
                 = env.fromSource(kafkaSource, WatermarkStrategy.noWatermarks(), "Kafka_Source");
