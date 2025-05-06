@@ -184,7 +184,7 @@ public class DwsTradeProvinceOrderWindow {
                     }
                 }
         );
-       //reduceDS.print();
+       reduceDS.print();
 
         SingleOutputStreamOperator<TradeProvinceOrderBean> provices_Ds = reduceDS.map(new RichMapFunction<TradeProvinceOrderBean, TradeProvinceOrderBean>() {
             private Connection hbaseConn;

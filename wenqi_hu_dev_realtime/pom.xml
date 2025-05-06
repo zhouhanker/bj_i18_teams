@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zh</groupId>
-        <artifactId>bj_i18_teams</artifactId>
+        <artifactId>bj_i18_teams-v9</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com</groupId>
+    <groupId>com.hwq</groupId>
     <artifactId>wenqi_hu_dev_realtime</artifactId>
 
     <properties>
