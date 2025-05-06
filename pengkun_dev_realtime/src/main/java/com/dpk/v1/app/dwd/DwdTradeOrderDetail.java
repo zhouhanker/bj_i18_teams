@@ -21,6 +21,7 @@ public class DwdTradeOrderDetail {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
+
         env.setParallelism(4);
 
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
