@@ -1,18 +1,11 @@
-package com.zpy.app.dws;
+package com.zpy.stream.realtime.v1.app.dws;
 
-import com.zpy.constant.Constant;
-import com.zpy.function.KeywordUDTF;
-import com.zpy.utils.SQLUtil;
+import com.zpy.stream.realtime.v1.constant.Constant;
+import com.zpy.stream.realtime.v1.function.KeywordUDTF;
+import com.zpy.stream.realtime.v1.utils.SQLUtil;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
-
-/**
- * @Package com.zpy.app.dws.DwsTrafficSourceKeywordPageViewWindow
- * @Author pengyu_zhu
- * @Date 2025/4/18 18:53
- * @description:
- */
 
 public class DwsTrafficSourceKeywordPageViewWindow {
     public static void main(String[] args) throws Exception {
@@ -55,7 +48,7 @@ public class DwsTrafficSourceKeywordPageViewWindow {
                 "  keyword,\n" +
                 "  count(*) keyword_count\n" +
                 "  FROM TABLE(\n" +
-                "  TUMBLE(TABLE split_table, DESCRIPTOR(ts), INTERVAL '5' second))\n" +
+                "  TUMBLE(TABLE split_table, DESCRIPTOR(ts), INTERVAL '2' second))\n" +
                 "  GROUP BY window_start, window_end, keyword");
 //        resTable.execute().print();
 

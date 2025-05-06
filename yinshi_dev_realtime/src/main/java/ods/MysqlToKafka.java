@@ -10,7 +10,7 @@ import utils.FlinkSourceUtil;
 
 
 /**
- * @Package com.lzy.retail.com.lzy.v1.realtime.app.ods.MysqlToKafka
+ * @Package ods.MysqlToKafka
  * @Author yinshi
  * @Date 2025/5/4 16:25
  * @description: MysqlToKafka

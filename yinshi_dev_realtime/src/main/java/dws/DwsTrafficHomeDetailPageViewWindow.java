@@ -31,7 +31,7 @@ import utils.FlinkSinkUtil;
 import utils.FlinkSourceUtil;
 
 /**
- * @Package com.lzy.com.lzy.com.lzy.v2.app.dws.DwsTrafficHomeDetailPageViewWindow
+ * @Package dws.DwsTrafficHomeDetailPageViewWindow
  * @Author yinshi
  * @Date 2025/5/4 15:03
  * @description: DwsTrafficHomeDetailPageViewWindow

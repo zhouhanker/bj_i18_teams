@@ -1,12 +1,12 @@
-package com.zpy.app.dws;
+package com.zpy.stream.realtime.v1.app.dws;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zpy.bean.CartAddUuBean;
-import com.zpy.function.BeanToJsonStrMapFunction;
-import com.zpy.utils.DateFormatUtil;
-import com.zpy.utils.FlinkSinkUtil;
-import com.zpy.utils.FlinkSourceUtil;
+import com.zpy.stream.realtime.v1.bean.CartAddUuBean;
+import com.zpy.stream.realtime.v1.function.BeanToJsonStrMapFunction;
+import com.zpy.stream.realtime.v1.utils.DateFormatUtil;
+import com.zpy.stream.realtime.v1.utils.FlinkSinkUtil;
+import com.zpy.stream.realtime.v1.utils.FlinkSourceUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
@@ -29,14 +29,6 @@ import org.apache.flink.streaming.api.functions.windowing.AllWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
-
-/**
- * @Package com.zpy.app.dws.DwsTradeCartAddUuWindow
- * @Author pengyu_zhu
- * @Date 2025/4/21 9:36
- * @description: DwsTradeCartAddUuWindow
- */
-
 public class DwsTradeCartAddUuWindow {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();

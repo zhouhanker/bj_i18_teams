@@ -33,7 +33,7 @@ import utils.FlinkSinkUtil;
 import utils.FlinkSourceUtil;
 
 /**
- * @Package com.lzy.com.lzy.com.lzy.v2.app.dws.DwsTrafficVcChArIsNewPageViewWindow
+ * @Package dws.DwsTrafficVcChArIsNewPageViewWindow
  * @Author yinshi
  * @Date 2025/5/4 19:37
  * @description: DwsTrafficVcChArIsNewPageViewWindow
